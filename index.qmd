@@ -1,0 +1,87 @@
+---
+title: "Using Quarto (R) For Creating Interactive Presentations"
+subtitle: "<span style='color: #AD192E;'>Echarts4r is used for interactive plots</span>"
+author: 'Oliver Zingg'
+format: 
+  revealjs: 
+    slideNumber: true
+    theme: 
+      - simple
+    embed-resources: true
+    controls: true
+    max-scale: 1
+    min-scale: 1
+    
+---
+
+```{r}
+#| include: false # dont include this code cell into presentation
+library(tidyverse) #package for data wrangling
+library(echarts4r) #package for creating interacting charts
+library(gt) #package for creating tables 
+
+
+
+
+```
+# Table Of Contents{.sb-turkis-red}
+- How to navigate this presentation
+- First Plot
+- Findings
+- Validity of Clusters
+- Potential Implications for Yapeal
+
+# How to Navigate This Presentation {background-color="#AD192E"}
+
+## How to Navigate This Presentation{.sb-turkis-red}
+
+:::{.incremental .highlight-last}
+- Click on the presentation to active the window and press *F* for full screen
+- With *ESC* full screen is exited.
+- Use arrow keys or space to go back and forth
+:::
+
+
+# First Plot{background-color="#19ad98"}
+
+## Prepare Data{.sb-turkis-red}
+
+
+```{r}
+library(palmerpenguins)
+library(RColorBrewer)
+
+penguins <- palmerpenguins::penguins
+
+my_colors <- brewer.pal(3, "Dark2")
+
+penguins |>
+  group_by(species) |>
+  e_charts(bill_length_mm) |>
+  e_scatter(flipper_length_mm, symbol_size = 7) |>
+  e_title('Comparing Three different Penguins Species', 
+          subtext = 'Flipper Length (mm) vs Bill Length (mm)') |>
+  e_legend(
+    orient = 'vertical',
+    right = '5%',
+    top = '40%') |>
+  e_y_axis(min = 160, max = 250) |>
+  e_x_axis(min = 30) |>
+  e_color(my_colors) |>
+  e_grid(right = '15%') |>
+  e_tooltip(trigger = "axis") |>
+  e_toolbox_feature('saveAsImage') |>
+  e_toolbox_feature('dataView')
+  
+
+
+
+
+
+```
+
+
+
+## Findings {background-color="#AD192E"}
+
+## Overview of Clusters and Features {.sb-turkis-red}
