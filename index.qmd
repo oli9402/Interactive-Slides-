@@ -43,7 +43,7 @@ library(gt) #package for creating tables
 
 # First Plot{background-color="#19ad98"}
 
-## Prepare Data{.sb-turkis-red}
+##
 
 
 ```{r}
@@ -73,14 +73,148 @@ penguins |>
   e_toolbox_feature('dataView')
   
 
+```
 
 
+# Code First Plot {background-color="#AD192E"}
 
+## Load Packages
+
+```{r}
+#| echo: TRUE
+#| eval: FALSE
+#| code-line-numbers: "1-2"
+library(palmerpenguins)
+library(RColorBrewer)
+
+penguins <- palmerpenguins::penguins
+
+my_colors <- brewer.pal(3, "Dark2")
+
+penguins |>
+  group_by(species) |>
+  e_charts(bill_length_mm) |>
+  e_scatter(flipper_length_mm, symbol_size = 7) |>
+  e_title('Comparing Three different Penguins Species', 
+          subtext = 'Flipper Length (mm) vs Bill Length (mm)') |>
+  e_legend(
+    orient = 'vertical',
+    right = '5%',
+    top = '40%') |>
+  e_y_axis(min = 160, max = 250) |>
+  e_x_axis(min = 30) |>
+  e_color(my_colors) |>
+  e_grid(right = '15%') |>
+  e_tooltip(trigger = "axis") |>
+  e_toolbox_feature('saveAsImage') |>
+  e_toolbox_feature('dataView')
+  
 
 ```
 
 
 
-## Findings {background-color="#AD192E"}
+## Load Data
 
-## Overview of Clusters and Features {.sb-turkis-red}
+```{r}
+#| echo: TRUE
+#| eval: FALSE
+#| code-line-numbers: "4"
+library(palmerpenguins)
+library(RColorBrewer)
+
+penguins <- palmerpenguins::penguins
+
+my_colors <- brewer.pal(3, "Dark2")
+
+penguins |>
+  group_by(species) |>
+  e_charts(bill_length_mm) |>
+  e_scatter(flipper_length_mm, symbol_size = 7) |>
+  e_title('Comparing Three different Penguins Species', 
+          subtext = 'Flipper Length (mm) vs Bill Length (mm)') |>
+  e_legend(
+    orient = 'vertical',
+    right = '5%',
+    top = '40%') |>
+  e_y_axis(min = 160, max = 250) |>
+  e_x_axis(min = 30) |>
+  e_color(my_colors) |>
+  e_grid(right = '15%') |>
+  e_tooltip(trigger = "axis") |>
+  e_toolbox_feature('saveAsImage') |>
+  e_toolbox_feature('dataView')
+  
+
+```
+
+## Load Colors
+
+```{r}
+#| echo: TRUE
+#| eval: FALSE
+#| code-line-numbers: "6"
+library(palmerpenguins)
+library(RColorBrewer)
+
+penguins <- palmerpenguins::penguins
+
+my_colors <- brewer.pal(3, "Dark2")
+
+penguins |>
+  group_by(species) |>
+  e_charts(bill_length_mm) |>
+  e_scatter(flipper_length_mm, symbol_size = 7) |>
+  e_title('Comparing Three different Penguins Species', 
+          subtext = 'Flipper Length (mm) vs Bill Length (mm)') |>
+  e_legend(
+    orient = 'vertical',
+    right = '5%',
+    top = '40%') |>
+  e_y_axis(min = 160, max = 250) |>
+  e_x_axis(min = 30) |>
+  e_color(my_colors) |>
+  e_grid(right = '15%') |>
+  e_tooltip(trigger = "axis") |>
+  e_toolbox_feature('saveAsImage') |>
+  e_toolbox_feature('dataView')
+  
+
+```
+
+
+## Creat Interactive Plot
+
+```{r}
+#| echo: TRUE
+#| eval: FALSE
+#| code-line-numbers: "8-24"
+library(palmerpenguins)
+library(RColorBrewer)
+
+penguins <- palmerpenguins::penguins
+
+my_colors <- brewer.pal(3, "Dark2")
+
+penguins |>
+  group_by(species) |>
+  e_charts(bill_length_mm) |>
+  e_scatter(flipper_length_mm, symbol_size = 7) |>
+  e_title('Comparing Three different Penguins Species', 
+          subtext = 'Flipper Length (mm) vs Bill Length (mm)') |>
+  e_legend(
+    orient = 'vertical',
+    right = '5%',
+    top = '40%') |>
+  e_y_axis(min = 160, max = 250) |>
+  e_x_axis(min = 30) |>
+  e_color(my_colors) |>
+  e_grid(right = '15%') |>
+  e_tooltip(trigger = "axis") |>
+  e_toolbox_feature('saveAsImage') |>
+  e_toolbox_feature('dataView')
+  
+
+```
+
+
