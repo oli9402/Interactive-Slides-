@@ -60,6 +60,7 @@ penguins |>
   e_scatter(flipper_length_mm, symbol_size = 7) |>
   e_title('Comparing Three different Penguins Species', 
           subtext = 'Flipper Length (mm) vs Bill Length (mm)') |>
+  e_lm(flipper_length_mm ~ bill_length_mm)|>
   e_legend(
     orient = 'vertical',
     right = '5%',
@@ -67,11 +68,11 @@ penguins |>
   e_y_axis(min = 160, max = 250) |>
   e_x_axis(min = 30) |>
   e_color(my_colors) |>
-  e_grid(right = '15%') |>
+  e_grid(right = '20%') |>
   e_tooltip(trigger = "axis") |>
   e_toolbox_feature('saveAsImage') |>
-  e_toolbox_feature('dataView')
-  
+  e_toolbox_feature('dataView') 
+
 
 ```
 
