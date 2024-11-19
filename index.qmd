@@ -26,9 +26,9 @@ library(gt) #package for creating tables
 # Table Of Contents{.sb-turkis-red}
 - How to navigate this presentation
 - First Plot
-- Findings
-- Validity of Clusters
-- Potential Implications for Yapeal
+- ....
+
+
 
 # How to Navigate This Presentation {background-color="#AD192E"}
 
