@@ -5,10 +5,14 @@ author: 'Oliver Zingg'
 format: 
   revealjs: 
     slideNumber: true
+    transition: slide
+    scrollable: true
     theme: 
       - simple
     embed-resources: true
     controls: true
+    auto-stretch: false
+fig-responsive: false
 
     
 ---
@@ -46,7 +50,9 @@ library(gt) #package for creating tables
 ##
 
 
+
 ```{r}
+
 library(palmerpenguins)
 library(RColorBrewer)
 
@@ -56,7 +62,7 @@ my_colors <- brewer.pal(3, "Dark2")
 
 penguins |>
   group_by(species) |>
-  e_charts(bill_length_mm) |>
+  e_charts(bill_length_mm, width = 1100, height = 550, renderer = "svg") |>
   e_scatter(flipper_length_mm, symbol_size = 7) |>
   e_title('Comparing Three different Penguins Species', 
           subtext = 'Flipper Length (mm) vs Bill Length (mm)') |>
@@ -69,9 +75,8 @@ penguins |>
   e_x_axis(min = 30) |>
   e_color(my_colors) |>
   e_grid(right = '20%') |>
-  e_tooltip(trigger = "axis") |>
-  e_toolbox_feature('saveAsImage') |>
-  e_toolbox_feature('dataView') 
+  e_tooltip(trigger = "axis")
+
 
 
 ```
